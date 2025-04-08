@@ -29,5 +29,8 @@ urlpatterns = [
     path('error_logs/', erro_logs, name='error_logs'),
     path('get_error_logs', get_error_logs, name='get_error_logs'),
     path('users/', include('users.urls')),
+    path('productos/', include('productos.urls')),
+    path('categorias/', include('categorias.urls')),
+    path('alumnos/', include('alumnos.urls')),
 ]
 

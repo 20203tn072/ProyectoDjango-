@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .page{
+          transform: translateX(100%);
+          animation: slideIn 1s forwards;
+        }
+  
+        @keyframes slideIn {
+          from { transform: translateX(100%); }
+          to { transform: translateX(0%); }
+        }
+
+        .pageZ{
+            transform: scale(0.8);
+            animation: zoomIn 2.0s forwards;
+        }
+
+        @keyframes zoomIn {
+            from{ transform: scale(0.8); opacity: 0;}
+            to{ transform: scale(1); opacity: 1;}
+        }
+      </style>
+</head>
+<body class="pageZ">
+    <h1>Titulo de la página</h1>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlvgt4O7bdc3ZlDEvYvma4MmUh_by2nZrV0A&s" alt="">
+    <h1>Bienvenido a la prueba de animación ente páginas</h1>
+    <a href="{% url 'agregar_producto' %}">Ir a agregar Productos</a>
+    
+    
+    
+    
+    <script>
+        //una animación de salida
+        document.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", function(event) {
+                event.preventDefault();
+                document.body.classList.add("page");
+                setTimeout(() => {
+                    window.location.href = this.href;
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
